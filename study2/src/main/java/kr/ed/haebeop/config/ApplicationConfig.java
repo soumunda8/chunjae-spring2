@@ -2,6 +2,11 @@ package kr.ed.haebeop.config;
 
 import kr.ed.haebeop.repository.TestRepository;
 import kr.ed.haebeop.repository.TestRepositoryImpl;
+import kr.ed.haebeop.repository.UserRepository;
+import kr.ed.haebeop.repository.UserRepositoryImpl;
+import kr.ed.haebeop.service.UserService;
+import kr.ed.haebeop.service.UserServiceImpl;
+import kr.ed.haebeop.test.CheckVO;
 import kr.ed.haebeop.test.transaction.TransactionRepository;
 import kr.ed.haebeop.service.TestService;
 import kr.ed.haebeop.service.TestServiceImpl;
@@ -21,9 +26,18 @@ public class ApplicationConfig {
     public TestRepository testRepository3() {return new TestRepositoryImpl();}
 
     @Bean
+    public UserService userService() {return new UserServiceImpl();}
+
+    @Bean
+    public UserRepository userRepository() {return new UserRepositoryImpl();}
+
+    @Bean
     public TransactionService transactionService() {return new TransactionService();}
 
     @Bean
     public TransactionRepository transactionRepository() {return new TransactionRepository();}
+
+    @Bean
+    public CheckVO chk1() {return new CheckVO();}
 
 }

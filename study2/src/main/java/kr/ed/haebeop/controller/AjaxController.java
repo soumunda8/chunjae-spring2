@@ -1,11 +1,22 @@
 package kr.ed.haebeop.controller;
 
+import kr.ed.haebeop.domain.Human;
+import kr.ed.haebeop.domain.TestVO;
+import kr.ed.haebeop.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/ajax")
 public class AjaxController {
+
+    @Autowired
+    private TestService testService3;
 
     @GetMapping("/")
     public String ajaxHome() {
@@ -40,7 +51,8 @@ public class AjaxController {
     }
 
     @GetMapping("/test03Pro")
-    public String ajaxTest03Pro() {
+    public String ajaxTest03Pro(@RequestParam("msg") String msg) {
+        System.out.println(msg);
         return "/ajax/test03";
     }
 
@@ -50,7 +62,8 @@ public class AjaxController {
     }
 
     @PostMapping("/test04Pro")
-    public String ajaxTest04Pro() {
+    public String ajaxTest04Pro(@RequestParam("msg") String msg) {
+        System.out.println(msg);
         return "/ajax/test04";
     }
 
@@ -60,8 +73,10 @@ public class AjaxController {
     }
 
     @GetMapping("/test05Pro")
-    public String ajaxTest05Pro() {
-        return "/ajax/test05";
+    @ResponseBody
+    public Human ajaxTest05Pro(@ModelAttribute("human") Human human) {
+        System.out.println(human.toString());
+        return human;
     }
 
     @GetMapping("/test06")
@@ -70,8 +85,10 @@ public class AjaxController {
     }
 
     @PostMapping("/test06Pro")
-    public String ajaxTest06Pro() {
-        return "/ajax/test06";
+    @ResponseBody
+    public Human ajaxTest06Pro(@ModelAttribute("human") Human human) {
+        System.out.println(human.toString());
+        return human;
     }
 
     @GetMapping("/test07")
@@ -80,38 +97,47 @@ public class AjaxController {
     }
 
     @PostMapping("/test07Pro")
-    public String ajaxTest07Pro() {
-        return "/ajax/test07";
+    @ResponseBody
+    public Human ajaxTest07Pro(@RequestBody Human human) {
+        System.out.println(human.toString());
+        return human;
     }
 
-    @GetMapping("/test08Pro")
-    public String ajaxTest08Pro() {
-        return "/ajax/test08";
-    }
-
-    @PostMapping("/test08")
+    @GetMapping("/test08")
     public String ajaxTest08() {
         return "/ajax/test08";
     }
 
-    @GetMapping("/test09Pro")
-    public String ajaxTest09Pro() {
-        return "/ajax/test09";
+    @PostMapping("/test08Pro")
+    @ResponseBody
+    public List<TestVO> ajaxTest08Pro(@RequestBody TestVO test) throws Exception {
+        System.out.println(test.toString());
+        testService3.testInsert(test);
+        List<TestVO> tList = testService3.testList();
+        return tList;
     }
 
-    @PostMapping("/test09")
+    @GetMapping("/test09")
     public String ajaxTest09() {
         return "/ajax/test09";
     }
 
-    @GetMapping("/test10Pro")
-    public String ajaxTest10Pro() {
+    @PostMapping("/test09Pro")
+    public ResponseEntity ajaxTest09Pro(@RequestBody TestVO test) {
+        System.out.println(test.toString());
+        return new ResponseEntity<>(test, HttpStatus.OK);
+    }
+
+    @GetMapping("/test10")
+    public String ajaxTest10() {
         return "/ajax/test10";
     }
 
-    @PostMapping("/test10")
-    public String ajaxTest10() {
-        return "/ajax/test10";
+    @PostMapping("/test10Pro")
+    public ResponseEntity ajaxTest10Pro(@RequestBody TestVO test) throws Exception {
+        testService3.testInsert(test);
+        List<TestVO> tList = testService3.testList();
+        return new ResponseEntity<>(tList, HttpStatus.OK);
     }
 
 }

@@ -8,6 +8,6 @@
              http://www.springframework.org/schema/security/spring-security.xsd">
 
              <!-- spring-security.xml : 암호화 패턴 설정 파일 -->
-             <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+             <beans:bean id="pwdEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 </beans:beans>

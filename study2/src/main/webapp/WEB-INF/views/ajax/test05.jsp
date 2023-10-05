@@ -8,28 +8,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajax Test01</title>
+    <title>Ajax Test05</title>
     <script  src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
     <nav>
+        <h2>05_Get + @ModelAttribute + Object 전송</h2>
+        <hr />
         <ul>
             <li><a href="${path }/ajax/">Home</a></li>
         </ul>
-        <button id="btn01" type="button">Get 전송</button>
+        <button id="btn05" type="button" age="20" name="몬스타엑스">Get 전송</button>
         <script>
             $(document).ready(function(){
-                let fn1 = () => $.ajax({
-                    type:"get",
-                    url:"${path }/ajax/test01Pro?msg=데이터전송",
-                    success:function(res) {
-                        console.log("성공", res);
-                    },
-                    error:function(err) {
-                        console.log("실패", err);
-                    },
+                $("#btn05").click(function(){
+                    var human = {"name" : $(this).attr("name"), "age" : parseInt($(this).attr("age"))};
+                    $.ajax({
+                        type:"get",
+                        url:"${path }/ajax/test05Pro",
+                        data:human,
+                        success:function(res) {
+                            console.log("성공", res);
+                        },
+                        error:function(err) {
+                            console.log("실패", err);
+                        },
+                    });
                 });
-                $("#btn01").on("click", fn1());
             });
         </script>
     </nav>

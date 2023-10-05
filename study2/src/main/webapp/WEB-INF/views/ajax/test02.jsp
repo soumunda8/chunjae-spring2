@@ -16,7 +16,7 @@
         <ul>
             <li><a href="${path }/ajax/">Home</a></li>
         </ul>
-        <button id="btn2" type="button">Post 전송</button>
+        <button id="btn02" type="button">Post 전송</button>
         <script>
             $(document).ready(function(){
                 var obj = {"msg" : "메세지"};
@@ -31,7 +31,7 @@
                         console.log("실패", err);
                     },
                 });
-                $("#btn2").on("click", fn2());
+                $("#btn02").on("click", fn2());
             });
         </script>
     </nav>
