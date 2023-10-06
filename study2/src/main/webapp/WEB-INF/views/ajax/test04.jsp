@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajax Test04</title>
-    <script  src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
     <nav>
@@ -30,7 +30,7 @@
                     var obj = { "msg": msg};
                     $.ajax({
                         type:"post",
-                        url:"${path1}/ajax/test04pro",
+                        url:"${path }/ajax/test04pro",
                         data:obj,
                         success:function(res) {
                             console.log("성공", res);

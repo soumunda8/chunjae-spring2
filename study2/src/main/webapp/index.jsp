@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="${pageContext.request.contextPath }" />
+<c:set var="path" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <body>
 <h2>Hello World!</h2>
 <nav>
-    <a href="${path1}/admin/list">회원 목록</a>
+    <a href="${path }/admin/list">회원 목록</a>
 </nav>
 </body>
 </html>

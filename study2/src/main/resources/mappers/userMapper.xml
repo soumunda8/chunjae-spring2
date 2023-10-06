@@ -17,7 +17,7 @@
     </select>
 
     <!-- 로그인1 : 컨트롤러 로그인 처리 -->
-    <select id="singIn" resultType="kr.ed.haebeop.domain.User">
+    <select id="signIn" resultType="kr.ed.haebeop.domain.User">
         select * from user where id = #{id}
     </select>
 

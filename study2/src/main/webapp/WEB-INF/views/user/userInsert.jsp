@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="${pageContext.request.contextPath }" />
+<c:set var="path" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +30,7 @@
         <h2 class="h1">회원가입</h2>
         <hr>
         <div class="container">
-            <form name="frm1" id="frm1" action="${path1 }/user/insert" method="post" onsubmit="return joinCheck(this)">
+            <form name="frm1" id="frm1" action="${path }/user/insert" method="post" onsubmit="return joinCheck(this)">
                 <table id="table1">
                     <tbody>
                     <tr>
@@ -125,7 +125,7 @@
                     }
                     var params = {	id : $("#id").val()	} //전송되어질 데이터를 객체로 묶음
                     $.ajax({
-                        url:"${path1 }/user/idCheck",	//아이디가 전송되어질 곳
+                        url:"${path }/user/idCheck",	//아이디가 전송되어질 곳
                         type:"post",		//전송방식
                         dataType:"json",	//데이터 반환 방식
                         data:params,		//전송방식이 post인 경우 객체로 묶어서 전송

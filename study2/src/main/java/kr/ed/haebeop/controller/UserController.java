@@ -93,8 +93,8 @@ public class UserController {
     }
 
     //로그인 	- 컨트롤러에서 세션 처리
-    @RequestMapping(value="signin", method = RequestMethod.POST)
-    public String userSignin(@RequestParam String id, @RequestParam String pw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+    @RequestMapping(value="signIn", method = RequestMethod.POST)
+    public String userSignIn(@RequestParam String id, @RequestParam String pw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
         session.invalidate();
         User mdto = new User();
         mdto.setPw(pw);

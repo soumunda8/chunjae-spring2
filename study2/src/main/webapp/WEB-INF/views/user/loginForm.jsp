@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="${pageContext.request.contextPath }" />
+<c:set var="path" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +30,7 @@
         <h2 class="h1">로그인</h2>
         <hr>
         <div class="container">
-            <form action="${path1 }/user/signin" method="post" name="loginForm">
+            <form action="${path }/user/signIn" method="post" name="loginForm">
                 <div class="table_form_wrap">
                     <table class="table_form">
                         <tbody>

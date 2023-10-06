@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="${pageContext.request.contextPath }" />
+<c:set var="path" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -936,7 +936,7 @@
         var in_btn1 = document.getElementById("in_btn1");
         in_btn1.addEventListener("click", function(){
             if(ck_item1.checked && ck_item2.checked){
-                location.href = "${path1}/user/join";
+                location.href = "${path }/user/join";
             } else {
                 alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다.");
                 return;

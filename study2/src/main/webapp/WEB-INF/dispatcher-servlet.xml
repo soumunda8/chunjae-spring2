@@ -18,6 +18,9 @@
     <resources mapping="/admin/**" location="/WEB-INF/views/admin" />
     <resources mapping="/user/**" location="/WEB-INF/views/user" />
     <resources mapping="/sample/**" location="/WEB-INF/views/sample" />
+    <resources mapping="/fileUpload/**" location="/WEB-INF/views/fileUpload" />
+    <resources mapping="/calendar/**" location="/WEB-INF/views/calendar" />
+    <resources mapping="/chat/**" location="/WEB-INF/views/chat" />
 
     <!-- 리졸버에 대한 접두사와 접미사 설정 -->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -54,5 +57,21 @@
     </interceptors>
     <!-- free 디렉토리의 view(.jsp)를 접근하려면 SampleInterceptor 클래스에 제시한 조건이 맞으면 접근 가능하게 할 수 있도록 함 -->
     <!-- admin 디렉토리의 view(.jsp)를 접근하려면 AdminInterceptor 클래스에 제시한 조건이 맞으면 접근 가능하게 할 수 있도록 함 -->
+
+    <!-- 언어 설정 -->
+    <interceptors>
+        <beans:bean class= "org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <beans:property name="paramName" value="language"/>
+        </beans:bean>
+    </interceptors>
+
+    <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <beans:property name="defaultLocale" value="ko"/>
+    </beans:bean>
+
+    <beans:bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <beans:property name="basename" value="messages"/><!-- resources/messages_ko.properties -->
+        <beans:property name="defaultEncoding" value="UTF-8" /><!-- resources/messages_en.properties -->
+    </beans:bean>
 
 </beans:beans>
